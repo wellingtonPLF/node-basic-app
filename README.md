@@ -4,19 +4,16 @@ Este projeto utiliza **Docker Compose** para subir um container Node.js para des
 
 ## Requisitos
 
-- Docker: `apt install docker.io`
+- Apt: `apt update`
+- Docker: `apt install docker.io && apt install docker-compose`
 - Docker Compose: `docker-compose up -d`
+- Curl: `apt install curl`
 
-## docker-compose.yml
+## Running Vs-Code 
+### code server password at /root/.config/code-server/config.yaml
 
 ```yaml
-version: "3.9"
+curl -fsSL https://code-server.dev/install.sh | sh
 
-services:
-  dev:
-    image: node:20-slim
-    container_name: node_dev
-    ports:
-      - "3333:3333"
-    stdin_open: true
-    tty: true
+code-server --bind-addr 0.0.0.0:<docker-container-port> --auth password
+
