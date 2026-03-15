@@ -8,3 +8,6 @@ services:
       - "3333:3333"
     stdin_open: true
     tty: true
+
+
+docker-compose up -d
